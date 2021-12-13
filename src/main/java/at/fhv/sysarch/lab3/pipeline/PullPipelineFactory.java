@@ -1,7 +1,11 @@
 package at.fhv.sysarch.lab3.pipeline;
 
 import at.fhv.sysarch.lab3.animation.AnimationRenderer;
+import at.fhv.sysarch.lab3.obj.Face;
 import at.fhv.sysarch.lab3.obj.Model;
+import com.hackoeur.jglm.Mat4;
+import com.hackoeur.jglm.Matrices;
+import com.hackoeur.jglm.Vec3;
 import javafx.animation.AnimationTimer;
 
 public class PullPipelineFactory {
@@ -50,6 +54,15 @@ public class PullPipelineFactory {
                 // TODO update model-view filter
 
                 // TODO trigger rendering of the pipeline
+
+             //   pd.getGraphicsContext().setStroke(pd.getModelColor());
+
+
+//                for(Face face : model.getFaces()){
+//                    pd.getGraphicsContext().strokeLine(face.getV1().getX()*100, face.getV1().getY()*100, face.getV2().getX()*100, face.getV2().getY()*100);
+//                    pd.getGraphicsContext().strokeLine(face.getV1().getX()*100, face.getV1().getY()*100, face.getV3().getX()*100, face.getV3().getY()*100);
+//                    pd.getGraphicsContext().strokeLine(face.getV2().getX()*100, face.getV2().getY()*100, face.getV3().getX()*100, face.getV3().getY()*100);
+//                }
             }
         };
     }
