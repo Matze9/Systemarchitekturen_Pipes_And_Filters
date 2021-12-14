@@ -2,13 +2,15 @@ package at.fhv.sysarch.lab3.pipeline.push.pushFilter;
 
 import at.fhv.sysarch.lab3.obj.Face;
 import at.fhv.sysarch.lab3.pipeline.PipelineData;
+import at.fhv.sysarch.lab3.pipeline.data.Pair;
 import at.fhv.sysarch.lab3.pipeline.push.pushPipe.PushPipe;
+import javafx.scene.paint.Color;
 
 import java.util.LinkedList;
 
-public class PushScreenSpaceTransformationFilter implements PushFilter<Face, Face>{
+public class PushScreenSpaceTransformationFilter implements PushFilter<Pair<Face, Color>, Pair<Face, Color>>{
 
-    private PushPipe <Face> outgoingPipe;
+    private PushPipe <Pair<Face, Color>> outgoingPipe;
     private PipelineData pd;
 
     public PushScreenSpaceTransformationFilter (PipelineData pd){
@@ -17,7 +19,8 @@ public class PushScreenSpaceTransformationFilter implements PushFilter<Face, Fac
 
 
     @Override
-    public void write(Face face) {
+    public void write(Pair<Face, Color> data) {
+        Face face = data.fst();
 
 
         //Divide with W - Can only use Multiply, so multiply with 1/W
@@ -30,24 +33,19 @@ public class PushScreenSpaceTransformationFilter implements PushFilter<Face, Fac
                     face.getN3().multiply((1 / face.getN3().getW()))
             );
 
-
-
-            outgoingPipe.write(new Face(
-                    pd.getViewportTransform().multiply(newFace.getV1()),
+            outgoingPipe.write(new Pair<Face, Color>(new Face(  pd.getViewportTransform().multiply(newFace.getV1()),
                     pd.getViewportTransform().multiply(newFace.getV2()),
                     pd.getViewportTransform().multiply(newFace.getV3()),
                     pd.getViewportTransform().multiply(newFace.getN1()),
                     pd.getViewportTransform().multiply(newFace.getN2()),
-                    pd.getViewportTransform().multiply(newFace.getN3())
+                    pd.getViewportTransform().multiply(newFace.getN3())), pd.getModelColor()
+
             ));
-
-
-
 
     }
 
     @Override
-    public void setOutgoingPipe(PushPipe outgoingPipe) {
+    public void setOutgoingPipe(PushPipe<Pair<Face, Color>> outgoingPipe) {
         this.outgoingPipe = outgoingPipe;
     }
 }

@@ -2,14 +2,16 @@ package at.fhv.sysarch.lab3.pipeline.push.pushFilter;
 
 import at.fhv.sysarch.lab3.obj.Face;
 import at.fhv.sysarch.lab3.pipeline.PipelineData;
+import at.fhv.sysarch.lab3.pipeline.data.Pair;
 import at.fhv.sysarch.lab3.pipeline.push.pushPipe.PushPipe;
 import com.hackoeur.jglm.Mat4;
+import javafx.scene.paint.Color;
 
 import java.util.LinkedList;
 
-public class PushPerspectiveProjectionFilter implements PushFilter<Face, Face>{
+public class PushPerspectiveProjectionFilter implements PushFilter<Pair<Face, Color>, Pair<Face, Color>>{
 
-    private PushPipe <Face> outgoingPipe;
+    private PushPipe <Pair<Face, Color>> outgoingPipe;
     private PipelineData pd;
 
     public PushPerspectiveProjectionFilter (PipelineData pd){
@@ -17,23 +19,25 @@ public class PushPerspectiveProjectionFilter implements PushFilter<Face, Face>{
     }
 
     @Override
-    public void write (Face face){
+    public void write (Pair<Face, Color> data){
+
+        Face face = data.fst();
 
         Mat4 projectionTransform = pd.getProjTransform();
 
-            outgoingPipe.write(new Face(
-                    projectionTransform.multiply(face.getV1()),
+            outgoingPipe.write(new Pair(new Face(projectionTransform.multiply(face.getV1()),
                     projectionTransform.multiply(face.getV2()),
                     projectionTransform.multiply(face.getV3()),
                     projectionTransform.multiply(face.getN1()),
                     projectionTransform.multiply(face.getN2()),
-                    projectionTransform.multiply(face.getN3())
+                    projectionTransform.multiply(face.getN3())), pd.getModelColor()
+
             ));
 
     }
 
     @Override
-    public void setOutgoingPipe(PushPipe<Face> outgoingPipe) {
+    public void setOutgoingPipe(PushPipe<Pair<Face, Color>> outgoingPipe) {
         this.outgoingPipe = outgoingPipe;
     }
 

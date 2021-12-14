@@ -68,16 +68,18 @@ at/fhv/sysarch/lab3/pipeline/push/pushPipe/PushPipe.java
  at.fhv.sysarch.lab3.pipeline.push.pushPipe.PushPipe
 at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushBackfaceCullingFilter.java
  at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushBackfaceCullingFilter
-at/fhv/sysarch/lab3/pipeline/Sink.java
- at.fhv.sysarch.lab3.pipeline.Sink
-at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushPerspectiveProjectionFilter.java
- at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushPerspectiveProjectionFilter
 at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushModelViewTransformationFilter.java
  at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushModelViewTransformationFilter
-at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushScreenSpaceTransformationFilter.java
- at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushScreenSpaceTransformationFilter
 at/fhv/sysarch/lab3/pipeline/PushPipelineFactory.java
  at.fhv.sysarch.lab3.pipeline.PushPipelineFactory
  at.fhv.sysarch.lab3.pipeline.PushPipelineFactory$1
 at/fhv/sysarch/lab3/Main.java
  at.fhv.sysarch.lab3.Main
+at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushPerspectiveProjectionFilter.java
+ at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushPerspectiveProjectionFilter
+at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushScreenSpaceTransformationFilter.java
+ at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushScreenSpaceTransformationFilter
+at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushColorFilter.java
+ at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushColorFilter
+at/fhv/sysarch/lab3/pipeline/Sink.java
+ at.fhv.sysarch.lab3.pipeline.Sink

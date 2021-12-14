@@ -3,6 +3,7 @@ package at.fhv.sysarch.lab3.pipeline;
 import at.fhv.sysarch.lab3.animation.AnimationRenderer;
 import at.fhv.sysarch.lab3.obj.Face;
 import at.fhv.sysarch.lab3.obj.Model;
+import at.fhv.sysarch.lab3.pipeline.data.Pair;
 import at.fhv.sysarch.lab3.pipeline.push.pushFilter.*;
 import at.fhv.sysarch.lab3.pipeline.push.pushPipe.PushPipe;
 import at.fhv.sysarch.lab3.pipeline.push.pushPipe.PushPipeImpl;
@@ -11,6 +12,7 @@ import com.hackoeur.jglm.Mat4;
 import com.hackoeur.jglm.Matrices;
 import com.hackoeur.jglm.Vec3;
 import javafx.animation.AnimationTimer;
+import javafx.scene.paint.Color;
 
 import java.util.LinkedList;
 
@@ -35,6 +37,10 @@ public class PushPipelineFactory {
 
         // TODO 4. add coloring (space unimportant)
 
+        PushColorFilter colorFilter = new PushColorFilter(pd);
+        PushPipe <Face> p5 = new PushPipeImpl<>(colorFilter);
+        backfaceCullingFilter.setOutgoingPipe(p5);
+
         // lighting can be switched on/off
         PushPerspectiveProjectionFilter perspectiveProjectionFilter = new PushPerspectiveProjectionFilter(pd);
         if (pd.isPerformLighting()) {
@@ -46,14 +52,14 @@ public class PushPipelineFactory {
         }
 
         //Perspective Projection
-        PushPipeImpl<Face> p1 = new PushPipeImpl(perspectiveProjectionFilter);
-        backfaceCullingFilter.setOutgoingPipe(p1);
+        PushPipeImpl<Pair<Face, Color>> p1 = new PushPipeImpl(perspectiveProjectionFilter);
+        colorFilter.setOutgoingPipe(p1);
 
         // TODO 6. perform perspective division to screen coordinates
 
         //ScreenSpaceTransformation
         PushScreenSpaceTransformationFilter screenSpaceTransformationFilter = new PushScreenSpaceTransformationFilter(pd);
-        PushPipeImpl<Face> p2 = new PushPipeImpl<>(screenSpaceTransformationFilter);
+        PushPipeImpl<Pair<Face, Color>> p2 = new PushPipeImpl<>(screenSpaceTransformationFilter);
         perspectiveProjectionFilter.setOutgoingPipe(p2);
 
 
@@ -61,7 +67,7 @@ public class PushPipelineFactory {
 
         //Sink
         Sink sink = new Sink(pd);
-        PushPipeImpl<Face> p3 = new PushPipeImpl<>(sink);
+        PushPipeImpl<Pair<Face, Color>> p3 = new PushPipeImpl<>(sink);
         screenSpaceTransformationFilter.setOutgoingPipe(p3);
 
         // returning an animation renderer which handles clearing of the
@@ -85,15 +91,6 @@ public class PushPipelineFactory {
                 // TODO update model-view filter
 
                 // TODO trigger rendering of the pipeline
-
-
-                   pd.getGraphicsContext().setStroke(pd.getModelColor());
-
-
-
-
-
-
 
 
 
