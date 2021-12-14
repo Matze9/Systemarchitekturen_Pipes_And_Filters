@@ -46,14 +46,23 @@ public class PushPipelineFactory {
         if (pd.isPerformLighting()) {
             // 4a. TODO perform lighting in VIEW SPACE
 
+            PushFlatShadingFilter flatShadingFilter = new PushFlatShadingFilter(pd);
+            PushPipeImpl<Pair<Face, Color>> p6 = new PushPipeImpl<>(flatShadingFilter);
+            colorFilter.setOutgoingPipe(p6);
+
             // 5. TODO perform projection transformation on VIEW SPACE coordinates
+
+            PushPipeImpl<Pair<Face, Color>> p1 = new PushPipeImpl(perspectiveProjectionFilter);
+            flatShadingFilter.setOutgoingPipe(p1);
         } else {
             // 5. TODO perform projection transformation
+
+            //Perspective Projection
+            PushPipeImpl<Pair<Face, Color>> p1 = new PushPipeImpl(perspectiveProjectionFilter);
+            colorFilter.setOutgoingPipe(p1);
         }
 
-        //Perspective Projection
-        PushPipeImpl<Pair<Face, Color>> p1 = new PushPipeImpl(perspectiveProjectionFilter);
-        colorFilter.setOutgoingPipe(p1);
+
 
         // TODO 6. perform perspective division to screen coordinates
 
@@ -91,10 +100,6 @@ public class PushPipelineFactory {
                 // TODO update model-view filter
 
                 // TODO trigger rendering of the pipeline
-
-
-
-
 
 
                 model.getFaces().forEach(face -> {

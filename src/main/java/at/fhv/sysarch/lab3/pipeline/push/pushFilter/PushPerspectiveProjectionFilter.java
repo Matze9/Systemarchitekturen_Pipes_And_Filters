@@ -28,7 +28,7 @@ public class PushPerspectiveProjectionFilter implements PushFilter<Pair<Face, Co
                     projectionTransform.multiply(face.getV3()),
                     projectionTransform.multiply(face.getN1()),
                     projectionTransform.multiply(face.getN2()),
-                    projectionTransform.multiply(face.getN3())), pd.getModelColor()
+                    projectionTransform.multiply(face.getN3())), data.snd()
 
             ));
 

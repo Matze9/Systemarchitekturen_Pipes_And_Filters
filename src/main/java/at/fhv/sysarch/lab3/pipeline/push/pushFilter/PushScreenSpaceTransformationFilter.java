@@ -36,7 +36,7 @@ public class PushScreenSpaceTransformationFilter implements PushFilter<Pair<Face
                     pd.getViewportTransform().multiply(newFace.getV3()),
                     pd.getViewportTransform().multiply(newFace.getN1()),
                     pd.getViewportTransform().multiply(newFace.getN2()),
-                    pd.getViewportTransform().multiply(newFace.getN3())), pd.getModelColor()
+                    pd.getViewportTransform().multiply(newFace.getN3())), data.snd()
 
             ));
 
