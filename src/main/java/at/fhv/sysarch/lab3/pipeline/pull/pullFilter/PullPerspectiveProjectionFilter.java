@@ -30,7 +30,7 @@ public class PullPerspectiveProjectionFilter implements PullFilter<Pair<Face, Co
             Face face = data.fst();
 
             if (face != null && face.getV1().equals(Vec4.VEC4_ZERO)){
-                System.out.println("Perspective Proj returns END FACE (PAIR) " + face);
+
                 return data;
             }else if(face != null) {
 

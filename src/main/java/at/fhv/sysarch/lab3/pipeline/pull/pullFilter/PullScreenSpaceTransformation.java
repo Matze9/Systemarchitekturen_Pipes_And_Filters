@@ -29,7 +29,7 @@ public class PullScreenSpaceTransformation implements PullFilter<Pair<Face, Colo
             Face face = data.fst();
 
             if (face != null && face.getV1().equals(Vec4.VEC4_ZERO)){
-                System.out.println("Screenspacetransformation returns END FACE Pair + face");
+
                 return data;
             } else if (face != null) {
 

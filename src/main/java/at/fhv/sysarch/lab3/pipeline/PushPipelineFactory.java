@@ -7,10 +7,7 @@ import at.fhv.sysarch.lab3.pipeline.data.Pair;
 import at.fhv.sysarch.lab3.pipeline.push.pushFilter.*;
 import at.fhv.sysarch.lab3.pipeline.push.pushPipe.PushPipe;
 import at.fhv.sysarch.lab3.pipeline.push.pushPipe.PushPipeImpl;
-import com.hackoeur.jglm.Mat3;
-import com.hackoeur.jglm.Mat4;
-import com.hackoeur.jglm.Matrices;
-import com.hackoeur.jglm.Vec3;
+import com.hackoeur.jglm.*;
 import javafx.animation.AnimationTimer;
 import javafx.scene.paint.Color;
 
@@ -34,11 +31,15 @@ public class PushPipelineFactory {
 
         //  3. perform depth sorting in VIEW SPACE
 
+        PushDepthSorting pushDepthSorting = new PushDepthSorting();
+        PushPipe<Face> p8 = new PushPipeImpl<>(pushDepthSorting);
+        backfaceCullingFilter.setOutgoingPipe(p8);
+
         //  4. add coloring (space unimportant)
 
         PushColorFilter colorFilter = new PushColorFilter(pd);
         PushPipe <Face> p5 = new PushPipeImpl<>(colorFilter);
-        backfaceCullingFilter.setOutgoingPipe(p5);
+        pushDepthSorting.setOutgoingPipe(p5);
 
         // lighting can be switched on/off
         PushPerspectiveProjectionFilter perspectiveProjectionFilter = new PushPerspectiveProjectionFilter(pd);
@@ -94,9 +95,9 @@ public class PushPipelineFactory {
                 rotate = rotate + fraction;
 //                One rotation converted into radian equals = 6.28 rad
 //                1 rot = 6.28 rad
-                float radiant = rotate / 6.28f;
+                float radiant = rotate * 6.28f;
                 //  create new model rotation matrix using pd.modelRotAxis
-                Mat4 rotationMatrix = Matrices.rotate(radiant, pd.getModelRotAxis());
+                Mat4 rotationMatrix = Matrices.rotate(rotate, pd.getModelRotAxis());
                 //  compute updated model-view transformation
                 modelViewTransformationFilter.setRotationMatrix(rotationMatrix);
 
@@ -106,6 +107,9 @@ public class PushPipelineFactory {
                 model.getFaces().forEach(face -> {
                     modelViewTransformationFilter.write(face);
                 });
+
+
+                modelViewTransformationFilter.write(new Face(Vec4.VEC4_ZERO, Vec4.VEC4_ZERO, Vec4.VEC4_ZERO, Vec4.VEC4_ZERO, Vec4.VEC4_ZERO, Vec4.VEC4_ZERO));
 
 
             }

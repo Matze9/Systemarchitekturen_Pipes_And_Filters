@@ -4,6 +4,7 @@ import at.fhv.sysarch.lab3.obj.Face;
 import at.fhv.sysarch.lab3.pipeline.PipelineData;
 import at.fhv.sysarch.lab3.pipeline.push.pushPipe.PushPipe;
 import com.hackoeur.jglm.Mat4;
+import com.hackoeur.jglm.Vec4;
 
 public class PushModelViewTransformationFilter implements PushFilter<Face, Face> {
 
@@ -17,6 +18,10 @@ public class PushModelViewTransformationFilter implements PushFilter<Face, Face>
 
     @Override
     public void write(Face face) {
+
+        if (face.getV1().equals(Vec4.VEC4_ZERO)){
+            outgoingPipe.write(face);
+        }
 
         Mat4 modelTranslation = pd.getModelTranslation();
         Mat4 viewTransformation = pd.getViewTransform();

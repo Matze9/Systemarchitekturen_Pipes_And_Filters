@@ -22,7 +22,7 @@ public class PullModelViewTransformationFilter implements PullFilter<Face, Face>
         Face face = incomingPipe.read();
 
         if(face.getV1().equals(Vec4.VEC4_ZERO)) {
-            System.out.println("Modelview returns END FACE : " + face);
+
             return face;
         } else if (face != null) {
             Mat4 modelTranslation = pd.getModelTranslation();

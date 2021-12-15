@@ -22,7 +22,7 @@ public class Source implements PullFilter <Face, Face>{
            index += 1;
            return face;
        }
-        System.out.println("Source returns END Face ");
+
         return new Face(Vec4.VEC4_ZERO, Vec4.VEC4_ZERO, Vec4.VEC4_ZERO, Vec4.VEC4_ZERO, Vec4.VEC4_ZERO, Vec4.VEC4_ZERO);
     }
 

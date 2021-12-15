@@ -14,7 +14,7 @@ public class PullBackfaceCullingFilter implements PullFilter<Face, Face>{
         Face face = incomingPipe.read();
 
         if (face.getV1().equals(Vec4.VEC4_ZERO)){
-            System.out.println("Backfaceculling returns END Face " + face);
+
             return face;
         }
 

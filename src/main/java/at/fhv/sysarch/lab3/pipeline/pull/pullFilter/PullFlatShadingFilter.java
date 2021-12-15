@@ -26,7 +26,7 @@ public class PullFlatShadingFilter implements PullFilter<Pair<Face, Color>, Pair
             Face face = data.fst();
 
             if (face != null && face.getV1().equals(Vec4.VEC4_ZERO)){
-                System.out.println("Flatshading returns END FACE " + face);
+
                 return data;
             } else if (face != null) {
 
