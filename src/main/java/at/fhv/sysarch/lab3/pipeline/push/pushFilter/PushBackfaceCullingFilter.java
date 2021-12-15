@@ -7,6 +7,7 @@ public class PushBackfaceCullingFilter implements PushFilter<Face, Face>{
 
     private PushPipe<Face> outgoingPipe;
 
+
     @Override
     public void write(Face face) {
 

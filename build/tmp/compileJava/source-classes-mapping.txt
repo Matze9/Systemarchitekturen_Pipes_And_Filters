@@ -1,61 +1,44 @@
-at/fhv/sysarch/lab3/rendering/RenderingMode.java
- at.fhv.sysarch.lab3.rendering.RenderingMode
-at/fhv/sysarch/lab3/obj/ObjLoader.java
- at.fhv.sysarch.lab3.obj.ObjLoader
+com/hackoeur/jglm/AbstractVec.java
+ com.hackoeur.jglm.AbstractVec
+at/fhv/sysarch/lab3/pipeline/PushPipelineFactory.java
+ at.fhv.sysarch.lab3.pipeline.PushPipelineFactory
+ at.fhv.sysarch.lab3.pipeline.PushPipelineFactory$1
 com/hackoeur/jglm/Vec.java
  com.hackoeur.jglm.Vec
-at/fhv/sysarch/lab3/obj/Face.java
- at.fhv.sysarch.lab3.obj.Face
 at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushPerspectiveProjectionFilter.java
  at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushPerspectiveProjectionFilter
 at/fhv/sysarch/lab3/pipeline/push/pushPipe/PushPipeImpl.java
  at.fhv.sysarch.lab3.pipeline.push.pushPipe.PushPipeImpl
 com/hackoeur/jglm/Mat3.java
  com.hackoeur.jglm.Mat3
-com/hackoeur/jglm/Matrices.java
- com.hackoeur.jglm.Matrices
+at/fhv/sysarch/lab3/pipeline/pull/pullFilter/PullModelViewTransformationFilter.java
+ at.fhv.sysarch.lab3.pipeline.pull.pullFilter.PullModelViewTransformationFilter
 com/hackoeur/jglm/Vec4.java
  com.hackoeur.jglm.Vec4
 com/hackoeur/jglm/AbstractMat.java
  com.hackoeur.jglm.AbstractMat
-com/hackoeur/jglm/Mat4.java
- com.hackoeur.jglm.Mat4
-at/fhv/sysarch/lab3/obj/Model.java
- at.fhv.sysarch.lab3.obj.Model
-com/hackoeur/jglm/Vec2.java
- com.hackoeur.jglm.Vec2
-at/fhv/sysarch/lab3/Main.java
- at.fhv.sysarch.lab3.Main
-com/hackoeur/jglm/Vec3.java
- com.hackoeur.jglm.Vec3
-at/fhv/sysarch/lab3/pipeline/data/Pair.java
- at.fhv.sysarch.lab3.pipeline.data.Pair
-at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushColorFilter.java
- at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushColorFilter
-com/hackoeur/jglm/buffer/BufferAllocator.java
- com.hackoeur.jglm.buffer.BufferAllocator
-at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushFilter.java
- at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushFilter
-at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushBackfaceCullingFilter.java
- at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushBackfaceCullingFilter
-com/hackoeur/jglm/support/FastMathCalc.java
- com.hackoeur.jglm.support.FastMathCalc
-at/fhv/sysarch/lab3/pipeline/push/pushPipe/PushPipe.java
- at.fhv.sysarch.lab3.pipeline.push.pushPipe.PushPipe
-com/hackoeur/jglm/support/Compare.java
- com.hackoeur.jglm.support.Compare
 at/fhv/sysarch/lab3/utils/MatrixUtils.java
  at.fhv.sysarch.lab3.utils.MatrixUtils
-com/hackoeur/jglm/support/FastMathLiteralArrays.java
- com.hackoeur.jglm.support.FastMathLiteralArrays
+at/fhv/sysarch/lab3/pipeline/pull/pullFilter/PullFilter.java
+ at.fhv.sysarch.lab3.pipeline.pull.pullFilter.PullFilter
+at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushFlatShadingFilter.java
+ at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushFlatShadingFilter
+at/fhv/sysarch/lab3/pipeline/data/Pair.java
+ at.fhv.sysarch.lab3.pipeline.data.Pair
 com/hackoeur/jglm/support/FastMath.java
  com.hackoeur.jglm.support.FastMath
  com.hackoeur.jglm.support.FastMath$CodyWaite
  com.hackoeur.jglm.support.FastMath$ExpFracTable
  com.hackoeur.jglm.support.FastMath$ExpIntTable
  com.hackoeur.jglm.support.FastMath$lnMant
+com/hackoeur/jglm/buffer/BufferAllocator.java
+ com.hackoeur.jglm.buffer.BufferAllocator
 com/hackoeur/jglm/support/JglmConfig.java
  com.hackoeur.jglm.support.JglmConfig
+at/fhv/sysarch/lab3/pipeline/push/pushPipe/PushPipe.java
+ at.fhv.sysarch.lab3.pipeline.push.pushPipe.PushPipe
+com/hackoeur/jglm/support/FastMathLiteralArrays.java
+ com.hackoeur.jglm.support.FastMathLiteralArrays
 at/fhv/sysarch/lab3/animation/AnimationRenderer.java
  at.fhv.sysarch.lab3.animation.AnimationRenderer
 com/hackoeur/jglm/buffer/BufferAllocatorFactory.java
@@ -65,23 +48,62 @@ at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushModelViewTransformationFilter.j
  at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushModelViewTransformationFilter
 com/hackoeur/jglm/Mat.java
  com.hackoeur.jglm.Mat
-at/fhv/sysarch/lab3/pipeline/PullPipelineFactory.java
- at.fhv.sysarch.lab3.pipeline.PullPipelineFactory
- at.fhv.sysarch.lab3.pipeline.PullPipelineFactory$1
-com/hackoeur/jglm/AbstractVec.java
- com.hackoeur.jglm.AbstractVec
+at/fhv/sysarch/lab3/pipeline/pull/pullPipe/PullPipeImpl.java
+ at.fhv.sysarch.lab3.pipeline.pull.pullPipe.PullPipeImpl
+com/hackoeur/jglm/support/Compare.java
+ com.hackoeur.jglm.support.Compare
 com/hackoeur/jglm/support/Precision.java
  com.hackoeur.jglm.support.Precision
  com.hackoeur.jglm.support.Precision$1
 at/fhv/sysarch/lab3/pipeline/PipelineData.java
  at.fhv.sysarch.lab3.pipeline.PipelineData
  at.fhv.sysarch.lab3.pipeline.PipelineData$Builder
+com/hackoeur/jglm/Mat4.java
+ com.hackoeur.jglm.Mat4
+com/hackoeur/jglm/Vec3.java
+ com.hackoeur.jglm.Vec3
+at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushColorFilter.java
+ at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushColorFilter
+at/fhv/sysarch/lab3/obj/ObjLoader.java
+ at.fhv.sysarch.lab3.obj.ObjLoader
+at/fhv/sysarch/lab3/rendering/RenderingMode.java
+ at.fhv.sysarch.lab3.rendering.RenderingMode
+at/fhv/sysarch/lab3/obj/Face.java
+ at.fhv.sysarch.lab3.obj.Face
+com/hackoeur/jglm/Matrices.java
+ com.hackoeur.jglm.Matrices
 at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushScreenSpaceTransformationFilter.java
  at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushScreenSpaceTransformationFilter
-at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushFlatShadingFilter.java
- at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushFlatShadingFilter
-at/fhv/sysarch/lab3/pipeline/PushPipelineFactory.java
- at.fhv.sysarch.lab3.pipeline.PushPipelineFactory
- at.fhv.sysarch.lab3.pipeline.PushPipelineFactory$1
+at/fhv/sysarch/lab3/obj/Model.java
+ at.fhv.sysarch.lab3.obj.Model
+com/hackoeur/jglm/Vec2.java
+ com.hackoeur.jglm.Vec2
+at/fhv/sysarch/lab3/pipeline/pull/pullPipe/PullPipe.java
+ at.fhv.sysarch.lab3.pipeline.pull.pullPipe.PullPipe
 at/fhv/sysarch/lab3/pipeline/Sink.java
  at.fhv.sysarch.lab3.pipeline.Sink
+at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushFilter.java
+ at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushFilter
+at/fhv/sysarch/lab3/pipeline/push/pushFilter/PushBackfaceCullingFilter.java
+ at.fhv.sysarch.lab3.pipeline.push.pushFilter.PushBackfaceCullingFilter
+com/hackoeur/jglm/support/FastMathCalc.java
+ com.hackoeur.jglm.support.FastMathCalc
+at/fhv/sysarch/lab3/pipeline/pull/pullFilter/PullFlatShadingFilter.java
+ at.fhv.sysarch.lab3.pipeline.pull.pullFilter.PullFlatShadingFilter
+at/fhv/sysarch/lab3/pipeline/pull/pullFilter/PullSink.java
+ at.fhv.sysarch.lab3.pipeline.pull.pullFilter.PullSink
+at/fhv/sysarch/lab3/pipeline/pull/pullFilter/PullPerspectiveProjectionFilter.java
+ at.fhv.sysarch.lab3.pipeline.pull.pullFilter.PullPerspectiveProjectionFilter
+at/fhv/sysarch/lab3/pipeline/pull/pullFilter/PullColorFilter.java
+ at.fhv.sysarch.lab3.pipeline.pull.pullFilter.PullColorFilter
+at/fhv/sysarch/lab3/pipeline/pull/pullFilter/PullScreenSpaceTransformation.java
+ at.fhv.sysarch.lab3.pipeline.pull.pullFilter.PullScreenSpaceTransformation
+at/fhv/sysarch/lab3/pipeline/pull/pullFilter/PullBackfaceCullingFilter.java
+ at.fhv.sysarch.lab3.pipeline.pull.pullFilter.PullBackfaceCullingFilter
+at/fhv/sysarch/lab3/Main.java
+ at.fhv.sysarch.lab3.Main
+at/fhv/sysarch/lab3/pipeline/PullPipelineFactory.java
+ at.fhv.sysarch.lab3.pipeline.PullPipelineFactory
+ at.fhv.sysarch.lab3.pipeline.PullPipelineFactory$1
+at/fhv/sysarch/lab3/pipeline/pull/pullFilter/Source.java
+ at.fhv.sysarch.lab3.pipeline.pull.pullFilter.Source
