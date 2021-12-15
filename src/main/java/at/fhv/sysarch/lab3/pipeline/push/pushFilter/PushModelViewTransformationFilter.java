@@ -9,6 +9,7 @@ public class PushModelViewTransformationFilter implements PushFilter<Face, Face>
 
     private PushPipe <Face> outgoingPipe;
     private PipelineData pd;
+    private Mat4 rotationMatrix;
 
     public PushModelViewTransformationFilter(PipelineData pd) {
         this.pd = pd;
@@ -20,7 +21,7 @@ public class PushModelViewTransformationFilter implements PushFilter<Face, Face>
         Mat4 modelTranslation = pd.getModelTranslation();
         Mat4 viewTransformation = pd.getViewTransform();
 
-        Mat4 transformator = viewTransformation.multiply(modelTranslation);
+        Mat4 transformator = viewTransformation.multiply(rotationMatrix).multiply(modelTranslation);
 
         outgoingPipe.write(new Face(
                 transformator.multiply(face.getV1()),
@@ -34,6 +35,10 @@ public class PushModelViewTransformationFilter implements PushFilter<Face, Face>
     @Override
     public void setOutgoingPipe(PushPipe<Face> outgoingPipe) {
         this.outgoingPipe = outgoingPipe;
+    }
+
+    public void setRotationMatrix(Mat4 rotationMatrix){
+        this.rotationMatrix = rotationMatrix;
     }
 
 

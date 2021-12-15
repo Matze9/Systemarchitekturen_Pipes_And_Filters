@@ -7,6 +7,8 @@ import at.fhv.sysarch.lab3.pipeline.data.Pair;
 import at.fhv.sysarch.lab3.pipeline.pull.pullFilter.*;
 import at.fhv.sysarch.lab3.pipeline.pull.pullPipe.PullPipe;
 import at.fhv.sysarch.lab3.pipeline.pull.pullPipe.PullPipeImpl;
+import com.hackoeur.jglm.Mat4;
+import com.hackoeur.jglm.Matrices;
 import javafx.animation.AnimationTimer;
 import javafx.scene.paint.Color;
 
@@ -72,6 +74,7 @@ public class PullPipelineFactory {
         // viewport and computation of the praction
         return new AnimationRenderer(pd) {
             // TODO rotation variable goes in here
+            float rotate = 0;
 
             /** This method is called for every frame from the JavaFX Animation
              * system (using an AnimationTimer, see AnimationRenderer). 
@@ -80,15 +83,15 @@ public class PullPipelineFactory {
              */
             @Override
             protected void render(float fraction, Model model) {
-                // TODO compute rotation in radians
-
-                // TODO create new model rotation matrix using pd.getModelRotAxis and Matrices.rotate
-
-                // TODO compute updated model-view tranformation
-
-                // TODO update model-view filter
-
-                // TODO trigger rendering of the pipeline
+                //  compute rotation in radians
+                rotate = rotate + fraction;
+//                One rotation converted into radian equals = 6.28 rad
+//                1 rot = 6.28 rad
+                float radiant = rotate / 6.28f;
+                //  create new model rotation matrix using pd.modelRotAxis
+                Mat4 rotationMatrix = Matrices.rotate(radiant, pd.getModelRotAxis());
+                //  compute updated model-view transformation
+                modelViewTransformationFilter.setRotationMatrix(rotationMatrix);
 
                 source.setModel(model);
                 sink.read();

@@ -9,8 +9,9 @@ import com.hackoeur.jglm.Vec4;
 
 public class PullModelViewTransformationFilter implements PullFilter<Face, Face>{
 
-    PipelineData pd;
-    PullPipe<Face> incomingPipe;
+    private PipelineData pd;
+    private PullPipe<Face> incomingPipe;
+    private Mat4 rotationMatrix;
 
     public PullModelViewTransformationFilter(PipelineData pd){
         this.pd = pd;
@@ -27,7 +28,7 @@ public class PullModelViewTransformationFilter implements PullFilter<Face, Face>
             Mat4 modelTranslation = pd.getModelTranslation();
             Mat4 viewTransformation = pd.getViewTransform();
 
-            Mat4 transformator = viewTransformation.multiply(modelTranslation);
+            Mat4 transformator = viewTransformation.multiply(rotationMatrix).multiply(modelTranslation);
 
 
             return (new Face(
@@ -45,5 +46,9 @@ public class PullModelViewTransformationFilter implements PullFilter<Face, Face>
     @Override
     public void setIncomingPipe(PullPipe<Face> pipe) {
         this.incomingPipe = pipe;
+    }
+
+    public void setRotationMatrix(Mat4 rotationMatrix) {
+        this.rotationMatrix = rotationMatrix;
     }
 }
