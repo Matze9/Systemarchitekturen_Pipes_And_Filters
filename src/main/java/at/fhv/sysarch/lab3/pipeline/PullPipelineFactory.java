@@ -31,10 +31,14 @@ public class PullPipelineFactory {
         backfaceCullingFilter.setIncomingPipe(p2);
 
         // TODO 3. perform depth sorting in VIEW SPACE
+        PullDepthSortingFilter depthSortingFilter = new PullDepthSortingFilter();
+        PullPipeImpl<Face> p7 = new PullPipeImpl<>(backfaceCullingFilter);
+        depthSortingFilter.setIncomingPipe(p7);
+
 
         // TODO 4. add coloring (space unimportant)
         PullColorFilter colorFilter = new PullColorFilter(pd);
-        PullPipeImpl<Face> p3 = new PullPipeImpl<>(backfaceCullingFilter);
+        PullPipeImpl<Face> p3 = new PullPipeImpl<>(depthSortingFilter);
         colorFilter.setIncomingPipe(p3);
 
 

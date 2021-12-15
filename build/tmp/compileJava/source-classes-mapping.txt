@@ -100,10 +100,13 @@ at/fhv/sysarch/lab3/pipeline/pull/pullFilter/PullScreenSpaceTransformation.java
 at/fhv/sysarch/lab3/pipeline/PushPipelineFactory.java
  at.fhv.sysarch.lab3.pipeline.PushPipelineFactory
  at.fhv.sysarch.lab3.pipeline.PushPipelineFactory$1
+at/fhv/sysarch/lab3/pipeline/pull/pullFilter/PullModelViewTransformationFilter.java
+ at.fhv.sysarch.lab3.pipeline.pull.pullFilter.PullModelViewTransformationFilter
 at/fhv/sysarch/lab3/Main.java
  at.fhv.sysarch.lab3.Main
 at/fhv/sysarch/lab3/pipeline/PullPipelineFactory.java
  at.fhv.sysarch.lab3.pipeline.PullPipelineFactory
  at.fhv.sysarch.lab3.pipeline.PullPipelineFactory$1
-at/fhv/sysarch/lab3/pipeline/pull/pullFilter/PullModelViewTransformationFilter.java
- at.fhv.sysarch.lab3.pipeline.pull.pullFilter.PullModelViewTransformationFilter
+at/fhv/sysarch/lab3/pipeline/pull/pullFilter/PullDepthSortingFilter.java
+ at.fhv.sysarch.lab3.pipeline.pull.pullFilter.PullDepthSortingFilter
+ at.fhv.sysarch.lab3.pipeline.pull.pullFilter.PullDepthSortingFilter$1
